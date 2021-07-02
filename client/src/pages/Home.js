@@ -3,7 +3,7 @@ import Header from './../components/Header'
 
 function Home() {
   return(
-    <div style={{ minHeight: '70vh' }}>
+    <div className='container'>
     <Header title='Home' />
       main content goes here
     </div>

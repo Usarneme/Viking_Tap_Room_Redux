@@ -10,7 +10,7 @@ function Footer() {
   }
   return (
     <div style={footerStyle}>
-      <h3>Footer</h3>
+      <h3>Viking Tap Room</h3>
       <span>&nbsp;-&nbsp;</span>
       <p>&copy; 2021 Tom</p>
     </div>

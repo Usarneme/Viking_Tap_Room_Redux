@@ -3,7 +3,7 @@ import Header from './../components/Header'
 
 function Kegs() {
   return (
-    <div style={{ minHeight: '70vh' }}>
+    <div className='container'>
     <Header title='Kegs' />
       main content goes here
     </div>
