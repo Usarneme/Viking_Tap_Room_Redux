@@ -1,5 +1,4 @@
 import React from 'react'
-import { v4 as uuid } from 'uuid'
 import PropTypes from 'prop-types'
 import SingleKeg from './SingleKeg'
 
@@ -18,13 +17,16 @@ function KegsList(props) {
         alcoholContent={keg.alcoholContent}
         name={keg.name}
         price={keg.price}
-        pintsRemaining={keg.pintsRemaining} />)}
+        pintsRemaining={keg.pintsRemaining}
+      />)}
     </div>
   )
 }
 
 KegsList.propTypes = {
-  kegs: PropTypes.array.isRequired
+  kegs: PropTypes.array.isRequired,
+  page: PropTypes.string.isRequired,
+  createNewKeg: PropTypes.func
 }
 
 export default KegsList

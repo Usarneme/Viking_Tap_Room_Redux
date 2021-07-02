@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { v4 as uuid } from 'uuid'
 
 // Pages
 import Home from './pages/Home'
@@ -35,6 +36,10 @@ class App extends Component {
     localStorage.setItem('viking_tap_room_kegs', JSON.stringify(this.state.kegs))
   }
 
+  createNewKeg = () => {
+    console.log("NEW KEG MAKER")
+  }
+
   render() {
     console.log(defaultKegs)
 
@@ -47,7 +52,7 @@ class App extends Component {
               <Keg kegs={this.state.kegs} />
             </Route>
             <Route path="/kegs">
-              <Kegs kegs={this.state.kegs} />
+              <Kegs kegs={this.state.kegs} createNewKeg={this.createNewKeg} />
             </Route>
             <Route path="/">
               <Home kegs={this.state.kegs} />

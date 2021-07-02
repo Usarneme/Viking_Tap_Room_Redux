@@ -11,8 +11,8 @@ function KegPage(props) {
   const { name, price, alcoholContent, pintsRemaining } = thisKeg
 
   return (
-    <div className='container'>
-      <Header title={`Keg #${id}`} />
+    <div className='container tall'>
+      <Header title={`Viewing Keg: ${name}`} />
       <SingleKeg
         name={name}
         price={price}
