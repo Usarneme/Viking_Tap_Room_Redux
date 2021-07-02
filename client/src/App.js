@@ -24,7 +24,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      kegs: defaultKegs
+      kegs: this.getKegsFromStorage() || defaultKegs
     }
   }
 
@@ -36,12 +36,13 @@ class App extends Component {
     localStorage.setItem('viking_tap_room_kegs', JSON.stringify(this.state.kegs))
   }
 
-  createNewKeg = (name, price, brand, alcoholContent) => {
+  createNewKeg = async (name, price, brand, alcoholContent) => {
     const newKeg = {
       name: name, brand: brand, price: Number(price), alcoholContent: Number(alcoholContent), id: uuid(), pintsRemaining: 124
     }
     const newKegsList = this.state.kegs.concat(newKeg)
-    this.setState({ kegs: newKegsList })
+    await this.setState({ kegs: newKegsList })
+    this.setKegsToStorage()
   }
 
   render() {
