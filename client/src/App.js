@@ -23,12 +23,12 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      kegs: this.getKegsFromStorage() || defaultKegs
+      kegs: defaultKegs
     }
   }
 
   getKegsFromStorage = () => {
-    return JSON.parse(localStorage.getItem('viking_tap_room_kegs')) || []
+    return JSON.parse(localStorage.getItem('viking_tap_room_kegs')) || null
   }
 
   setKegsToStorage = () => {
@@ -36,22 +36,26 @@ class App extends Component {
   }
 
   render() {
+    console.log(defaultKegs)
+
     return (
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/kegs">
-            <Kegs />
-          </Route>
-          <Route path="/kegs/:id">
-            <Keg />
-          </Route>
-        </Switch>
-      <Footer />
-    </Router>
+      <div>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/kegs">
+              <Kegs kegs={this.state.kegs} />
+            </Route>
+            <Route path="/kegs/:id">
+              <Keg kegs={this.state.kegs} />
+            </Route>
+            <Route path="/">
+              <Home kegs={this.state.kegs} />
+            </Route>
+          </Switch>
+        </Router>
+        <Footer />
+      </div>
     )
   }
 }

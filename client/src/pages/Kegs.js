@@ -1,14 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Header from './../components/Header'
-import KegsList from '../components/KegsList'
+import KegsList from './../components/KegsList'
 
-function Kegs() {
+function Kegs(props) {
   return (
     <div className='container'>
-    <Header title='Kegs' />
-      <KegsList />
+      <Header title='Kegs' />
+      {/* <KegsList kegs={props.kegs} /> */}
     </div>
   )
+}
+
+Kegs.propTypes = {
+  kegs: PropTypes.array.isRequired
 }
 
 export default Kegs
