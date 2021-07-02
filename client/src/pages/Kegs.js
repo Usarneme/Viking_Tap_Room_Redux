@@ -1,10 +1,12 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import Header from './../components/Header'
 
 function Kegs() {
   return (
-    <Fragment>
-      <h1>Kegs</h1>
-    </Fragment>
+    <div style={{ minHeight: '70vh' }}>
+    <Header title='Kegs' />
+      main content goes here
+    </div>
   )
 }
 
