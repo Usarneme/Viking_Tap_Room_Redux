@@ -9,7 +9,7 @@ function Kegs(props) {
     <div className='container tall'>
       <Header title='Kegs - Administration' />
       <KegsList kegs={props.kegs} page={'kegs'} />
-      <AddNewKeg createNewKeg={props.createNewKeg} />
+      <AddNewKeg createNewKeg={(name, price, brand, alcoholContent) => props.createNewKeg(name, price, brand, alcoholContent)} />
     </div>
   )
 }

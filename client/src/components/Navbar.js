@@ -38,7 +38,7 @@ function Navbar() {
       </Link>
       <Link style={linkStyles} to="/kegs">
         <GiVikingHelmet style={iconStyles} />
-        <span style={spanStyles} >Kegs</span>
+        <span style={spanStyles} >Admin</span>
       </Link>
     </nav>
   )

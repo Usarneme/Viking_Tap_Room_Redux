@@ -36,8 +36,12 @@ class App extends Component {
     localStorage.setItem('viking_tap_room_kegs', JSON.stringify(this.state.kegs))
   }
 
-  createNewKeg = () => {
-    console.log("NEW KEG MAKER")
+  createNewKeg = (name, price, brand, alcoholContent) => {
+    const newKeg = {
+      name: name, brand: brand, price: Number(price), alcoholContent: Number(alcoholContent), id: uuid(), pintsRemaining: 124
+    }
+    const newKegsList = this.state.kegs.concat(newKeg)
+    this.setState({ kegs: newKegsList })
   }
 
   render() {

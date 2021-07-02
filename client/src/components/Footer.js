@@ -12,7 +12,7 @@ function Footer() {
     <div style={footerStyle}>
       <h3>Viking Tap Room</h3>
       <span>&nbsp;-&nbsp;</span>
-      <p>&copy; 2021 Tom</p>
+      <p>&copy; 2021 <a href="https://github.com/usarneme" target="_blank">Tom/Usarneme</a></p>
     </div>
   )
 }
