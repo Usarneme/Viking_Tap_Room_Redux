@@ -1,0 +1,34 @@
+{
+  "kegs": [
+    {
+      "name": "Borr Beer",
+      "price": 6,
+      "pintsRemaining": 124,
+      "alcoholContent": 8
+    },
+    {
+      "name": "Freyja IPA",
+      "price": 5,
+      "pintsRemaining": 124,
+      "alcoholContent": 6
+    },
+    {
+      "name": "Hela Pils",
+      "price": 3,
+      "pintsRemaining": 124,
+      "alcoholContent": 5
+    },
+    {
+      "name": "Loki Hef",
+      "price": 4,
+      "pintsRemaining": 124,
+      "alcoholContent": 4
+    },
+    {
+      "name": "Yggdrasil Ale",
+      "price": 4,
+      "pintsRemaining": 124,
+      "alcoholContent": 5
+    }
+  ]
+}
