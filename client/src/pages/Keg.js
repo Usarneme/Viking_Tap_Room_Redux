@@ -8,7 +8,7 @@ function KegPage(props) {
   const { id } = useParams()
   let thisKeg
   props.kegs.forEach(k => { if (k.id === id) thisKeg = k })
-  const { name, price, alcoholContent, pintsRemaining } = thisKeg
+  const { name, brand, price, alcoholContent, pintsRemaining } = thisKeg
 
   return (
     <div className='container tall'>
@@ -16,6 +16,7 @@ function KegPage(props) {
       <SingleKeg
         name={name}
         price={price}
+        brand={brand}
         alcoholContent={alcoholContent}
         pintsRemaining={pintsRemaining}
         id={id} />

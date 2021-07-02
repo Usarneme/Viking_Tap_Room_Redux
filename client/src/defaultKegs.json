@@ -2,6 +2,7 @@
   "kegs": [
     {
       "id": "ace347c6-909e-4ebe-a61e-c51553fa479d",
+      "brand": "Viking Brews",
       "name": "Borr Beer",
       "price": 6,
       "pintsRemaining": 124,
@@ -9,6 +10,7 @@
     },
     {
       "id": "ace347c6-909e-4ebe-a61e-c51553fa479e",
+      "brand": "Viking Brews",
       "name": "Freyja IPA",
       "price": 5,
       "pintsRemaining": 124,
@@ -16,6 +18,7 @@
     },
     {
       "id": "ace347c6-909e-4ebe-a61e-c51553fa479f",
+      "brand": "Viking Brews",
       "name": "Hela Pils",
       "price": 3,
       "pintsRemaining": 124,
@@ -23,6 +26,7 @@
     },
     {
       "id": "ace347c6-909e-4ebe-a61e-c51553fa479g",
+      "brand": "Viking Brews",
       "name": "Loki Hef",
       "price": 4,
       "pintsRemaining": 124,
@@ -30,6 +34,7 @@
     },
     {
       "id": "ace347c6-909e-4ebe-a61e-c51553fa479h",
+      "brand": "Viking Brews",
       "name": "Yggdrasil Ale",
       "price": 4,
       "pintsRemaining": 124,

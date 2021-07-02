@@ -6,7 +6,7 @@ function SingleKeg(props) {
     <div id={props.id}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         ${props.price}
-        <h3>{props.name}</h3>
+        <h3>{props.name} - {props.brand}</h3>
       </div>
       <div>Pints Remaining: {props.pintsRemaining}</div>
       <div>Alcohol Content: {props.alcoholContent}</div>
