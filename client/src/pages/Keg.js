@@ -1,21 +1,30 @@
-import React, { useParams } from 'react'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Header from './../components/Header'
 import SingleKeg from './../components/SingleKeg'
 
-function Keg(props) {
+function KegPage(props) {
   const { id } = useParams()
+  let thisKeg
+  props.kegs.forEach(k => { if (k.id === id) thisKeg = k })
+  const { name, price, alcoholContent, pintsRemaining } = thisKeg
 
   return (
-    <div>
+    <div className='container'>
       <Header title={`Keg #${id}`} />
-      <SingleKeg keg={props.keg} />
+      <SingleKeg
+        name={name}
+        price={price}
+        alcoholContent={alcoholContent}
+        pintsRemaining={pintsRemaining}
+        id={id} />
     </div>
   )
 }
 
-Keg.propTypes = {
+KegPage.propTypes = {
   kegs: PropTypes.array.isRequired
 }
 
-export default Keg
+export default KegPage

@@ -43,11 +43,11 @@ class App extends Component {
         <Router>
           <Navbar />
           <Switch>
-            <Route path="/kegs">
-              <Kegs kegs={this.state.kegs} />
-            </Route>
             <Route path="/kegs/:id">
               <Keg kegs={this.state.kegs} />
+            </Route>
+            <Route path="/kegs">
+              <Kegs kegs={this.state.kegs} />
             </Route>
             <Route path="/">
               <Home kegs={this.state.kegs} />
