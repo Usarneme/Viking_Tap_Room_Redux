@@ -19,15 +19,17 @@ function KegsList(props) {
         name={keg.name}
         price={keg.price}
         pintsRemaining={keg.pintsRemaining}
+        sellPint={props.page !== 'home' ? props.sellPint : null}
       />)}
     </div>
   )
 }
 
 KegsList.propTypes = {
+  createNewKeg: PropTypes.func,
   kegs: PropTypes.array.isRequired,
   page: PropTypes.string.isRequired,
-  createNewKeg: PropTypes.func
+  sellPint: PropTypes.func
 }
 
 export default KegsList

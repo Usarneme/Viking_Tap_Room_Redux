@@ -39,6 +39,14 @@
       "price": 4,
       "pintsRemaining": 124,
       "alcoholContent": 5
+    },
+    {
+      "id": "ace347c6-909e-4ebe-a61e-c51553fa479i",
+      "brand": "The Biking Viking",
+      "name": "Thor's Nearly-Gone Amber",
+      "price": 3,
+      "pintsRemaining": 1,
+      "alcoholContent": 13
     }
   ]
 }

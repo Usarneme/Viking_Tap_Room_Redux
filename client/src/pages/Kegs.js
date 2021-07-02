@@ -8,15 +8,16 @@ function Kegs(props) {
   return (
     <div className='container tall'>
       <Header title='Kegs - Administration' />
-      <KegsList kegs={props.kegs} page={'kegs'} />
+      <KegsList kegs={props.kegs} page={'kegs'} sellPint={props.sellPint} />
       <AddNewKeg createNewKeg={(name, price, brand, alcoholContent) => props.createNewKeg(name, price, brand, alcoholContent)} />
     </div>
   )
 }
 
 Kegs.propTypes = {
+  createNewKeg: PropTypes.func,
   kegs: PropTypes.array.isRequired,
-  createNewKeg: PropTypes.func
+  sellPint: PropTypes.func.isRequired
 }
 
 export default Kegs

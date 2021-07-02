@@ -45,19 +45,25 @@ class App extends Component {
     this.setKegsToStorage()
   }
 
-  render() {
-    console.log(defaultKegs)
+  sellPint = id => {
+    const kegCopy = this.state.kegs.filter(k => k.id === id)[0]
+    kegCopy.pintsRemaining -= 1
+    const kegsListCopy = this.state.kegs.filter(k => k.id !== id)
+    kegsListCopy.push(kegCopy)
+    this.setState({ kegs: kegsListCopy })
+  }
 
+  render() {
     return (
       <div>
         <Router>
           <Navbar />
           <Switch>
             <Route path="/kegs/:id">
-              <Keg kegs={this.state.kegs} />
+              <Keg kegs={this.state.kegs} sellPint={id => this.sellPint(id)} />
             </Route>
             <Route path="/kegs">
-              <Kegs kegs={this.state.kegs} createNewKeg={this.createNewKeg} />
+              <Kegs kegs={this.state.kegs} createNewKeg={this.createNewKeg} sellPint={id => this.sellPint(id)} />
             </Route>
             <Route path="/">
               <Home kegs={this.state.kegs} />
