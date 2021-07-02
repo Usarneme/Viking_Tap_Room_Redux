@@ -4,11 +4,17 @@ import PropTypes from 'prop-types'
 import SingleKeg from './SingleKeg'
 
 function KegsList(props) {
-  props.kegs.map(k => console.log(k))
+  const containerStyles = {
+    display: 'grid',
+    gridGap: '11px',
+    gridTemplateColumns: 'repeat(3, 1fr)'
+  }
+
   return (
-    <div>
+    <div style={containerStyles}>
       {props.kegs.map(keg => <SingleKeg
-        key={uuid()}
+        key={keg.id}
+        id={keg.id}
         alcoholContent={keg.alcoholContent}
         name={keg.name}
         price={keg.price}
