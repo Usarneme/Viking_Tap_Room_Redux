@@ -45,12 +45,13 @@ class App extends Component {
     this.setKegsToStorage()
   }
 
-  sellPint = id => {
+  sellPint = async id => {
     const kegCopy = this.state.kegs.filter(k => k.id === id)[0]
     kegCopy.pintsRemaining -= 1
     const kegsListCopy = this.state.kegs.filter(k => k.id !== id)
     kegsListCopy.push(kegCopy)
-    this.setState({ kegs: kegsListCopy })
+    await this.setState({ kegs: kegsListCopy })
+    this.setKegsToStorage()
   }
 
   render() {

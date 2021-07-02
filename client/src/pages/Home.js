@@ -6,7 +6,7 @@ import KegsList from '../components/KegsList'
 function Home(props) {
   return(
     <div className='container tall'>
-      <Header title='Beer Selection' />
+      <Header title='Home' />
       <KegsList kegs={props.kegs} page={'home'} />
     </div>
   )

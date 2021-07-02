@@ -10,18 +10,21 @@ function KegsList(props) {
   }
 
   return (
-    <div style={containerStyles}>
-      {props.kegs.map(keg => <SingleKeg
-        key={keg.id}
-        id={keg.id}
-        alcoholContent={keg.alcoholContent}
-        brand={keg.brand}
-        name={keg.name}
-        price={keg.price}
-        pintsRemaining={keg.pintsRemaining}
-        sellPint={props.page !== 'home' ? props.sellPint : null}
-      />)}
-    </div>
+    <React.Fragment>
+      <h3 style={{ margin: '22px' }}>Current kegs in rotation</h3>
+      <div style={containerStyles}>
+        {props.kegs.map(keg => <SingleKeg
+          key={keg.id}
+          id={keg.id}
+          alcoholContent={keg.alcoholContent}
+          brand={keg.brand}
+          name={keg.name}
+          price={keg.price}
+          pintsRemaining={keg.pintsRemaining}
+          sellPint={props.page !== 'home' ? props.sellPint : null}
+        />)}
+      </div>
+    </React.Fragment>
   )
 }
 

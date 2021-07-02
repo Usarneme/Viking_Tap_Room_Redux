@@ -33,34 +33,44 @@ function AddNewKeg(props) {
         <div style={divStyles}>
           <label htmlFor='name'>Name</label>
           <input
+            type='text'
             name='name'
             onChange={e => changeName(e.target.value)}
             placeholder='Name'
-            value={name}></input>
+            value={name}
+            required></input>
         </div>
         <div style={divStyles}>
           <label htmlFor='price'>Price</label>
           <input
+            type='number'
+            min='1'
             name='price'
             onChange={e => changePrice(e.target.value)}
             placeholder='Price'
-            value={price}></input>
+            value={price}
+            required></input>
         </div>
         <div style={divStyles}>
           <label htmlFor='brand'>Brand</label>
           <input
+            type='text'
             name='brand'
             onChange={e => changeBrand(e.target.value)}
             placeholder='Brand'
-            value={brand}></input>
+            value={brand}
+            required></input>
         </div>
         <div style={divStyles}>
           <label htmlFor='alcoholContent'>Alcohol Content</label>
           <input
+            type='number'
+            min='1'
             name='alcoholContent'
             onChange={e => changeAlcoholContent(e.target.value)}
             placeholder='Alcohol Content'
-            value={alcoholContent}></input>
+            value={alcoholContent}
+            required></input>
         </div>
         <button type='submit'>Add Keg</button>
       </form>

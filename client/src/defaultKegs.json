@@ -47,6 +47,14 @@
       "price": 3,
       "pintsRemaining": 1,
       "alcoholContent": 13
+    },
+    {
+      "id": "ace347c6-909e-4ebe-a61e-c51553fa479j",
+      "brand": "Jotunheim Brewing",
+      "name": "Ragnarok's Revenge Red",
+      "price": 5,
+      "pintsRemaining": 48,
+      "alcoholContent": 6
     }
   ]
 }
