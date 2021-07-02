@@ -7,7 +7,7 @@ function Kegs(props) {
   return (
     <div className='container'>
       <Header title='Kegs' />
-      {/* <KegsList kegs={props.kegs} /> */}
+      <KegsList kegs={props.kegs} />
     </div>
   )
 }

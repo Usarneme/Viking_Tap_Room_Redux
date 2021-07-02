@@ -7,7 +7,7 @@ function Home(props) {
   return(
     <div className='container'>
       <Header title='Home' />
-      {/* <KegsList kegs={props.kegs} /> */}
+      <KegsList kegs={props.kegs} />
     </div>
   )
 }
