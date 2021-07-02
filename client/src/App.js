@@ -1,32 +1,42 @@
+import React, { Component } from 'react'
 
-      import React, { Component } from 'react'
-      import Home from './pages/Home'
-      import Footer from './components/Footer'
-      import Navbar from './components/Navbar'
-      class App extends Component {
-        constructor(props) {
-          super(props)
-          this.state = {
-            currentPage: this.getCurrentLocation()
-          }
-        }
-        getCurrentLocation = () => {
-          return window.location.pathname.slice(1)
-        }
-        navigateTo = (event, location) => {
-          event.preventDefault()
-          this.setState({currentPage: location})
-          window.history.replaceState({}, 'Squash Shoes', location)
-        }
-        render() {
-          return (
-            <div>
-              <Navbar />
-              <Home />
-              <Footer />
-            </div>
-          )
-        }
-      }
-      export default App
-    
+// Pages
+import Home from './pages/Home'
+import Kegs from './pages/Kegs' // view all kegs
+
+// Components
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+
+// Router
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom"
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/kegs">
+            <Kegs />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      <Footer />
+    </Router>
+    )
+  }
+}
+
+export default App
