@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { connect } from 'react-redux'
 // Redux actions
 import { ADD, UPDATE, DELETE } from './actions/kegs'
+import { TOGGLE_EDIT } from './actions/renderState'
 
 // Pages
 import Home from './pages/Home'
@@ -65,6 +66,14 @@ class App extends Component {
     dispatch(action)
   }
 
+  toggleEditKeg = () => {
+    const { dispatch } = this.props
+    const action = {
+      type: TOGGLE_EDIT
+    }
+    dispatch(action)
+  }
+
   render() {
     return (
       <div>
@@ -74,7 +83,8 @@ class App extends Component {
             <Route path="/kegs/:id">
               <Keg kegs={this.props.kegs}
                 sellPint={id => this.sellPint(id)}
-                removeKeg={id => this.removeKeg(id)} />
+                removeKeg={id => this.removeKeg(id)}
+                toggleEditKeg={this.toggleEditKeg} />
             </Route>
             <Route path="/kegs">
               <Kegs kegs={this.props.kegs}
