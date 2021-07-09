@@ -11,7 +11,7 @@ describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
   })
 
   test('show edit form should default to false', () => {
-    expect(renderStateReducer(defaultRenderState, { type: null })).toBe(defaultRenderState)
+    expect(renderStateReducer(defaultRenderState, { type: null })).toEqual(defaultRenderState)
   })
 
   test('show edit form action should toggle state from false to true', () => {
@@ -21,7 +21,7 @@ describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
     const resultRenderState = {
       renderEditForm: true
     }
-    expect(renderStateReducer(defaultRenderState, action)).toBe(resultRenderState)
+    expect(renderStateReducer(defaultRenderState, action)).toEqual(resultRenderState)
   })
 
 })
