@@ -80,7 +80,7 @@ class App extends Component {
         <Router>
           <Navbar />
           <Switch>
-            <Route path="/kegs/:id">
+            {/* <Route path="/kegs/:id">
               <Keg kegs={this.props.kegs}
                 sellPint={id => this.sellPint(id)}
                 removeKeg={id => this.removeKeg(id)}
@@ -94,7 +94,7 @@ class App extends Component {
             </Route>
             <Route path="/">
               <Home kegs={this.props.kegs} />
-            </Route>
+            </Route> */}
           </Switch>
         </Router>
         <Footer />
