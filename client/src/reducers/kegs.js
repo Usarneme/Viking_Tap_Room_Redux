@@ -1,6 +1,7 @@
-const defaultState = require('./../defaultKegs.json')
 // Redux action constants
 import { ADD, UPDATE, DELETE } from './../actions/kegs'
+// Default state JSON - to emulate data pulled from back-end/DB
+const defaultState = require('./../defaultKegs.json')
 
 const kegReducer = (state = defaultState, action) => {
   const { id, brand, name, price, pintsRemaining = 124, alcoholContent } = action

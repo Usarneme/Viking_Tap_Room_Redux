@@ -65,5 +65,3 @@ describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
     expect(kegReducer(defaultState, action)).toEqual(kegsWithoutDeleted)
   })
 })
-
-
