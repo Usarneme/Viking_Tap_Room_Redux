@@ -4,7 +4,7 @@ import renderStateReducer from './../../reducers/renderState'
 
 describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
   let action
-  const defaultRenderState = { renderEditForm: false }
+  const defaultRenderState = { editFormShowing: false }
 
   test('sanity check', () => {
     expect(true).toEqual(true)
@@ -19,7 +19,7 @@ describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
       type: TOGGLE_EDIT
     }
     const resultRenderState = {
-      renderEditForm: true
+      editFormShowing: true
     }
     expect(renderStateReducer(defaultRenderState, action)).toEqual(resultRenderState)
   })
@@ -29,7 +29,7 @@ describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
       type: TOGGLE_EDIT
     }
     const trueRenderState = {
-      renderEditForm: true
+      editFormShowing: true
     }
     expect(renderStateReducer(trueRenderState, action)).toEqual(defaultRenderState)
   })
@@ -39,7 +39,7 @@ describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
       type: HIDE_EDITOR
     }
     const trueRenderState = {
-      renderEditForm: true
+      editFormShowing: true
     }
     expect(renderStateReducer(trueRenderState, action)).toEqual(defaultRenderState)
   })
