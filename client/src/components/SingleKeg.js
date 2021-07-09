@@ -26,7 +26,16 @@ function SingleKeg(props) {
           : null
         }
 
-        { props.removeKeg !== null ?
+        { id ? null :
+          <div style={kegStyles}>
+            <Link to={{
+              pathname: `/kegs/${props.id}`,
+              props: {props}
+            }}><button>View Details</button></Link>
+          </div>
+        }
+
+        { id ?
           <div style={kegStyles}>
             <button
               onClick={() => props.removeKeg(props.id)}
@@ -35,24 +44,17 @@ function SingleKeg(props) {
           : null
         }
 
-        { id ? null :
-          <div style={kegStyles}>
-            <Link to={{
-              pathname: `/kegs/${props.id}`,
-              props: {props}
-            }}>View Details</Link>
-          </div>
-        }
-
-        { props.kegEditShowing ?
-          <div style={kegStyles}>
-            <button onClick={props.toggleEditKeg}>Cancel Edits</button>
-            form here
-          </div>
-          :
-          <div style={kegStyles}>
-            <button onClick={props.toggleEditKeg}>Edit This Keg</button>
-          </div>
+        { id ?
+          props.kegEditShowing ?
+            <div style={kegStyles}>
+              <button onClick={props.toggleEditKeg}>Cancel Edits</button>
+              form here
+            </div>
+            :
+            <div style={kegStyles}>
+              <button onClick={props.toggleEditKeg}>Edit This Keg</button>
+            </div>
+          : null
         }
 
     </div>
