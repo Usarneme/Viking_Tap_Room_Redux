@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 
-import defaultState, { kegs, renderState } from './../../defaultState.json'
+import { kegs, renderState } from './../../defaultState.json'
 import rootReducer from './../../reducers'
 import renderStateReducer from './../../reducers/renderState'
 import kegReducer from '../../reducers/kegs'
@@ -13,10 +13,10 @@ describe('√ ROOT REDUCER TESTS √', () => {
   })
 
   test('verify initial state of root reducer is same as kegReducer reducer', () => {
-    expect(store.getState().kegReducer).toEqual(kegReducer(defaultState, { type: null }))
+    expect(store.getState().kegReducer).toEqual(kegReducer(kegs, { type: null }))
   })
 
   test('verify initial state of root reducer is same as renderState reducer', () => {
-    expect(store.getState().renderStateReducer).toEqual(renderStateReducer(defaultState, { type: null }))
+    expect(store.getState().renderStateReducer).toEqual(renderStateReducer(renderState, { type: null }))
   })
 })
