@@ -2,6 +2,8 @@
 
 Administer Kegs at the Viking Tap Room! Create, Read, Update, Delete Kegs via React+Redux. See keg status including name, price, pints remaining, and alcohol content.
 
+For a production build of this application, please visit [http://viking_tap_room.surge.sh/](http://viking_tap_room.surge.sh/)
+
 ---
 
 ### Instructions
