@@ -8,8 +8,14 @@ function Kegs(props) {
   return (
     <div className='container tall'>
       <Header title='Administration' />
-      <KegsList kegs={props.kegs} page={'kegs'} sellPint={props.sellPint} />
-      <AddNewKeg createNewKeg={(name, price, brand, alcoholContent) => props.createNewKeg(name, price, brand, alcoholContent)} />
+      <KegsList
+        kegs={props.kegs}
+        page={'kegs'}
+        sellPint={props.sellPint}
+        removeKeg={props.removeKeg} />
+      <AddNewKeg
+        createNewKeg={(name, price, brand, alcoholContent) => props.createNewKeg(name, price, brand, alcoholContent)}
+      />
     </div>
   )
 }
@@ -17,7 +23,8 @@ function Kegs(props) {
 Kegs.propTypes = {
   createNewKeg: PropTypes.func,
   kegs: PropTypes.array.isRequired,
-  sellPint: PropTypes.func.isRequired
+  sellPint: PropTypes.func.isRequired,
+  removeKeg: PropTypes.func.isRequired
 }
 
 export default Kegs

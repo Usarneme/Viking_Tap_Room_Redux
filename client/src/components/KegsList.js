@@ -22,6 +22,7 @@ function KegsList(props) {
           price={keg.price}
           pintsRemaining={keg.pintsRemaining}
           sellPint={props.page !== 'home' ? props.sellPint : null}
+          removeKeg={props.page !== 'home' ? props.removeKeg : null}
         />)}
       </div>
     </React.Fragment>
@@ -32,7 +33,8 @@ KegsList.propTypes = {
   createNewKeg: PropTypes.func,
   kegs: PropTypes.array.isRequired,
   page: PropTypes.string.isRequired,
-  sellPint: PropTypes.func
+  sellPint: PropTypes.func,
+  removeKeg: PropTypes.func
 }
 
 export default KegsList

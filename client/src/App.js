@@ -19,7 +19,7 @@ import Navbar from './components/Navbar'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from "react-router-dom"
 
 class App extends Component {
@@ -56,6 +56,15 @@ class App extends Component {
     dispatch(action)
   }
 
+  removeKeg = id => {
+    const { dispatch } = this.props
+    const action = {
+      type: DELETE,
+      id: id
+    }
+    dispatch(action)
+  }
+
   render() {
     return (
       <div>
@@ -63,10 +72,15 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route path="/kegs/:id">
-              <Keg kegs={this.props.kegs} sellPint={id => this.sellPint(id)} />
+              <Keg kegs={this.props.kegs}
+                sellPint={id => this.sellPint(id)}
+                removeKeg={id => this.removeKeg(id)} />
             </Route>
             <Route path="/kegs">
-              <Kegs kegs={this.props.kegs} createNewKeg={this.createNewKeg} sellPint={id => this.sellPint(id)} />
+              <Kegs kegs={this.props.kegs}
+                createNewKeg={this.createNewKeg}
+                sellPint={id => this.sellPint(id)}
+                removeKeg={id => this.removeKeg(id)} />
             </Route>
             <Route path="/">
               <Home kegs={this.props.kegs} />

@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 function SingleKeg(props) {
   const kegStyles = {
     padding: '2px 4px'
   }
+
+  const { id } = useParams()
+  console.log('SINGLE KEG ROUTE: ', id)
 
   return (
     <div id={props.id} style={kegStyles}>
@@ -26,11 +29,23 @@ function SingleKeg(props) {
             null}
       </div>
       <div style={kegStyles}>
-        <Link to={{
-          pathname: `/kegs/${props.id}`,
-          props: {props}
-        }}>View Details</Link>
+        {props.removeKeg !== null
+          ?
+            <button
+              onClick={() => props.removeKeg(props.id)}
+            >Remove This Keg</button>
+          :
+            null}
       </div>
+      { id ?
+        null :
+        <div style={kegStyles}>
+          <Link to={{
+            pathname: `/kegs/${props.id}`,
+            props: {props}
+          }}>View Details</Link>
+        </div>
+      }
     </div>
   )
 }
@@ -41,7 +56,8 @@ SingleKeg.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   pintsRemaining: PropTypes.number.isRequired,
-  sellPint: PropTypes.func
+  sellPint: PropTypes.func,
+  removeKeg: PropTypes.func
 }
 
 export default SingleKeg
