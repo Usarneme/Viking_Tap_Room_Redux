@@ -6,9 +6,7 @@ function SingleKeg(props) {
   const kegStyles = {
     padding: '2px 4px'
   }
-
   const { id } = useParams()
-  console.log('SINGLE KEG ROUTE: ', id)
 
   return (
     <div id={props.id} style={kegStyles}>
@@ -18,34 +16,45 @@ function SingleKeg(props) {
       </div>
       <div style={kegStyles}>Pints Remaining: {props.pintsRemaining}</div>
       <div style={kegStyles}>Alcohol Content: {props.alcoholContent}</div>
-      <div style={kegStyles}>
-        {props.sellPint !== null
-          ?
+        { props.sellPint !== null ?
+          <div style={kegStyles}>
             <button
               onClick={() => props.sellPint(props.id)}
               disabled={props.pintsRemaining < 1}
             >Sell A Pint</button>
-          :
-            null}
-      </div>
-      <div style={kegStyles}>
-        {props.removeKeg !== null
-          ?
+          </div>
+          : null
+        }
+
+        { props.removeKeg !== null ?
+          <div style={kegStyles}>
             <button
               onClick={() => props.removeKeg(props.id)}
             >Remove This Keg</button>
+          </div>
+          : null
+        }
+
+        { id ? null :
+          <div style={kegStyles}>
+            <Link to={{
+              pathname: `/kegs/${props.id}`,
+              props: {props}
+            }}>View Details</Link>
+          </div>
+        }
+
+        { props.kegEditShowing ?
+          <div style={kegStyles}>
+            <button onClick={props.toggleEditKeg}>Cancel Edits</button>
+            form here
+          </div>
           :
-            null}
-      </div>
-      { id ?
-        null :
-        <div style={kegStyles}>
-          <Link to={{
-            pathname: `/kegs/${props.id}`,
-            props: {props}
-          }}>View Details</Link>
-        </div>
-      }
+          <div style={kegStyles}>
+            <button onClick={props.toggleEditKeg}>Edit This Keg</button>
+          </div>
+        }
+
     </div>
   )
 }
@@ -57,7 +66,9 @@ SingleKeg.propTypes = {
   price: PropTypes.number.isRequired,
   pintsRemaining: PropTypes.number.isRequired,
   sellPint: PropTypes.func,
-  removeKeg: PropTypes.func
+  removeKeg: PropTypes.func,
+  toggleEditKeg: PropTypes.func,
+  kegEditShowing: PropTypes.bool
 }
 
 export default SingleKeg
