@@ -45,13 +45,15 @@ class App extends Component {
     dispatch(action)
   }
 
-  sellPint = async id => {
+  sellPint = id => {
+    const { dispatch } = this.props
     const kegCopy = this.props.kegs.filter(k => k.id === id)[0]
     kegCopy.pintsRemaining -= 1
-    const kegsListCopy = this.props.kegs.filter(k => k.id !== id)
-    kegsListCopy.push(kegCopy)
-    await this.setState({ kegs: kegsListCopy })
-    this.setKegsToStorage()
+    const action = {
+      type: UPDATE,
+      ...kegCopy
+    }
+    dispatch(action)
   }
 
   render() {
