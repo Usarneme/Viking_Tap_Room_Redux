@@ -2,7 +2,10 @@
 import { TOGGLE_EDIT } from './../actions/renderState'
 
 const renderStateReducer = (state = {}, action) => {
-  return state
+  switch (action.type) {
+    default:
+      return state
+  }
 }
 
 export default renderStateReducer
