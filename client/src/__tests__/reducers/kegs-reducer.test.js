@@ -15,6 +15,15 @@ describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
     "alcoholContent": 8
   }
 
+  const existingKeg = {
+    "id": "ace347c6-909e-4ebe-a61e-c51553fa479f",
+    "brand": "Viking Brews",
+    "name": "Hela Pils",
+    "price": 3,
+    "pintsRemaining": 124,
+    "alcoholContent": 5
+  }
+
   test('sanity check', () => {
     expect(true).toEqual(true)
   })
@@ -32,6 +41,19 @@ describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
       type: ADD, ...testKeg
     }
     const result = [...defaultState, testKeg]
+    expect(kegReducer(defaultState, action)).toEqual(result)
+  })
+
+  test('it successfully updates state when UPDATE_KEG action is invoked', () => {
+    const stateWithoutCurrentKeg = defaultState.filter(k => k.id !== existingKeg.id)
+    const existingKegCopy = {...existingKeg}
+    existingKegCopy.alcoholContent = 22
+
+    action = {
+      type: UPDATE, ...existingKegCopy
+    }
+
+    const result = [...stateWithoutCurrentKeg, existingKegCopy]
     expect(kegReducer(defaultState, action)).toEqual(result)
   })
 })
