@@ -11,7 +11,7 @@ function SingleKeg(props) {
   const { id } = useParams()
 
   return (
-    <div id={props.id} style={kegStyles}>
+    <div id={props.id} className='container single-keg'>
       <div style={kegStyles} className='flexed row'>
         ${props.price}
         <h3>{props.brand} - {props.name}</h3>

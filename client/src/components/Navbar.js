@@ -8,7 +8,9 @@ function Navbar() {
     gridTemplateColumns: 'repeat(2, 188px)',
     gridColumnGap: '11px',
     alignItems: 'center',
-    background: 'rgba(255,255,255,0.6)',
+    justifyItems: 'center',
+    justifyContent: 'center',
+    background: '#434c5e',
     borderBottom: '2px groove #111',
     width: '100%'
   }
@@ -18,7 +20,6 @@ function Navbar() {
     display: 'inline-grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
     background: 'rgba(255,255,255,0.3)',
-    borderRadius: '15px',
     textAlign: 'center',
   }
 
@@ -28,6 +29,7 @@ function Navbar() {
 
   const spanStyles = {
     padding: '11px',
+    borderBottom: '2px solid #eceff4'
   }
 
   return (

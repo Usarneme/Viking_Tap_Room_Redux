@@ -1,13 +1,13 @@
 # Viking Tap Room
 
-Administer Kegs at the Viking Tap Room! Create, Read, Update, Delete Kegs. See keg status including name, price, pints remaining, and alcohol content.
+Administer Kegs at the Viking Tap Room! Create, Read, Update, Delete Kegs via React+Redux. See keg status including name, price, pints remaining, and alcohol content.
 
 ---
 
 ### Instructions
 
-1. Clone this repository via `git clone https://github.com/Usarneme/Viking_Tap_Room`
-2. Enter the new directory and project folder `cd Viking_Tap_Room/client`
+1. Clone this repository via `git clone https://github.com/Usarneme/Viking_Tap_Room_Redux`
+2. Enter the new directory and project folder `cd Viking_Tap_Room_Redux/client`
 3. Install dependencies `npm install`
 4. Start the server `npm run start`
 5. Navigate to localhost:3000/ in your browser of choice
@@ -18,9 +18,18 @@ Administer Kegs at the Viking Tap Room! Create, Read, Update, Delete Kegs. See k
 
 - NodeJS
 - React
+- Redux
+- Jest Tests
 - PropTypes
 - ReactIcons
 - CreateReactApp
+
+---
+
+### Testing
+
+All Redux reducers are fully tested.
+To run the test suite, enter the project directory with `cd client/` and run `npm run test`
 
 ---
 
@@ -54,7 +63,7 @@ GPLv3
 
 ### Copyright
 
-2021 Tom/Usarneme
+&copy; 2021 Tom/Usarneme
 
 ---
 
