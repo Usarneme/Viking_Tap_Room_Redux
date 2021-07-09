@@ -1,8 +1,8 @@
-import defaultState from './../../defaultKegs.json'
+import defaultState from '../../defaultKegs.json'
 // Redux action constants
-import { ADD, UPDATE, DELETE } from './../../actions/kegs'
+import { ADD, UPDATE, DELETE } from '../../actions/kegs'
 // Reducer
-import kegReducer from './../../reducers/kegs'
+import kegReducer from '../../reducers/kegs'
 
 describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
   let action

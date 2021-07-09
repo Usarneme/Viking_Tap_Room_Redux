@@ -7,7 +7,7 @@ describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
     expect(true).toEqual(true)
   })
 
-  const defaultRenderState = false
+  const defaultRenderState = { renderEditForm: false }
 
   test('show edit form should default to false', () => {
     expect(renderStateReducer(defaultRenderState, { type: null })).toBe(defaultRenderState)
