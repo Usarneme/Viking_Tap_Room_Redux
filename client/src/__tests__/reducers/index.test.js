@@ -12,7 +12,11 @@ describe('√ ROOT REDUCER TESTS √', () => {
     expect(true).toEqual(true)
   })
 
-  test('verify initial state of root reducer is same as renderState reducer', () => {
+  test('verify initial state of root reducer is same as kegReducer reducer', () => {
     expect(store.getState().kegReducer).toEqual(kegReducer(defaultState, { type: null }))
+  })
+
+  test('verify initial state of root reducer is same as renderState reducer', () => {
+    expect(store.getState().renderStateReducer).toEqual(renderStateReducer(defaultState, { type: null }))
   })
 })
