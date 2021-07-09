@@ -56,6 +56,14 @@ describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
     const result = [...stateWithoutCurrentKeg, existingKegCopy]
     expect(kegReducer(defaultState, action)).toEqual(result)
   })
+
+  test('it removes a keg from state when DELETE_KEG action is invoked', () => {
+    const kegsWithoutDeleted = defaultState.filter(k => k.id !== existingKeg.id)
+    action = {
+      type: DELETE, id: existingKeg.id
+    }
+    expect(kegReducer(defaultState, action)).toEqual(kegsWithoutDeleted)
+  })
 })
 
 
