@@ -57,5 +57,7 @@
       "alcoholContent": 6
     }
   ],
-  "renderState": {}
+  "renderState": {
+    "renderEditForm": false
+  }
 }

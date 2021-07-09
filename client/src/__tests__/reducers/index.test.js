@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 
-import defaultState, { kegs, renderState } from './../../defaultKegs.json'
+import defaultState, { kegs, renderState } from './../../defaultState.json'
 import rootReducer from './../../reducers'
 import renderStateReducer from './../../reducers/renderState'
 import kegReducer from '../../reducers/kegs'

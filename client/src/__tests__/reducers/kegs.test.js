@@ -1,4 +1,4 @@
-import { kegs } from '../../defaultKegs.json'
+import { kegs } from '../../defaultState.json'
 // Redux action constants
 import { ADD, UPDATE, DELETE } from '../../actions/kegs'
 // Reducer

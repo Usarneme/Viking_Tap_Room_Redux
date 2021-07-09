@@ -1,8 +1,8 @@
 // Redux action constants
 import { TOGGLE_EDIT } from './../actions/renderState'
-import defaultState from './../defaultKegs.json'
+import { renderState } from './../defaultState.json'
 
-const renderStateReducer = (state = defaultState, action) => {
+const renderStateReducer = (state = renderState, action) => {
   switch (action.type) {
     case TOGGLE_EDIT:
       return { renderEditForm: !state.renderEditForm }
