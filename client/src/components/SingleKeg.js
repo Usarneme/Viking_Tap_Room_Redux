@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, useParams } from 'react-router-dom'
 
+import EditKeg from './EditKeg'
+
 function SingleKeg(props) {
   const kegStyles = {
     padding: '2px 4px'
@@ -45,10 +47,17 @@ function SingleKeg(props) {
         }
 
         { id ?
-          props.kegEditShowing ?
+          props.editFormShowing ?
             <div style={kegStyles}>
               <button onClick={props.toggleEditKeg}>Cancel Edits</button>
-              form here
+              <EditKeg
+                id={props.id}
+                alcoholContent={props.alcoholContent}
+                brand={props.brand}
+                name={props.name}
+                price={props.price}
+                pintsRemaining={props.pintsRemaining}
+              />
             </div>
             :
             <div style={kegStyles}>
@@ -70,7 +79,7 @@ SingleKeg.propTypes = {
   sellPint: PropTypes.func,
   removeKeg: PropTypes.func,
   toggleEditKeg: PropTypes.func,
-  kegEditShowing: PropTypes.bool
+  editFormShowing: PropTypes.bool
 }
 
 export default SingleKeg

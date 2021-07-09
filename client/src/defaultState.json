@@ -58,6 +58,6 @@
     }
   ],
   "renderState": {
-    "renderEditForm": false
+    "editFormShowing": false
   }
 }

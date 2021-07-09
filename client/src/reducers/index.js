@@ -4,8 +4,8 @@ import kegReducer from './kegs'
 import renderStateReducer from './renderState'
 
 const rootReducer = combineReducers({
-  kegReducer,
-  renderStateReducer
+  kegs: kegReducer,
+  renderState: renderStateReducer
 })
 
 export default rootReducer

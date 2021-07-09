@@ -29,6 +29,7 @@ function KegPage(props) {
         sellPint={props.sellPint}
         removeKeg={removeKeg}
         toggleEditKeg={props.toggleEditKeg}
+        editFormShowing={props.editFormShowing}
       />
     </div>
   )
@@ -38,7 +39,8 @@ KegPage.propTypes = {
   kegs: PropTypes.array.isRequired,
   sellPint: PropTypes.func.isRequired,
   removeKeg: PropTypes.func.isRequired,
-  toggleEditKeg: PropTypes.func.isRequired
+  toggleEditKeg: PropTypes.func.isRequired,
+  editFormShowing: PropTypes.bool
 }
 
 export default KegPage

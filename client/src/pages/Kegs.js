@@ -12,7 +12,8 @@ function Kegs(props) {
         kegs={props.kegs}
         page={'kegs'}
         sellPint={props.sellPint}
-        removeKeg={props.removeKeg} />
+        removeKeg={props.removeKeg}
+        renderEditForm={props.renderEditForm} />
       <AddNewKeg
         createNewKeg={(name, price, brand, alcoholContent) => props.createNewKeg(name, price, brand, alcoholContent)}
       />
@@ -24,7 +25,8 @@ Kegs.propTypes = {
   createNewKeg: PropTypes.func,
   kegs: PropTypes.array.isRequired,
   sellPint: PropTypes.func.isRequired,
-  removeKeg: PropTypes.func.isRequired
+  removeKeg: PropTypes.func.isRequired,
+  renderEditForm: PropTypes.bool
 }
 
 export default Kegs
