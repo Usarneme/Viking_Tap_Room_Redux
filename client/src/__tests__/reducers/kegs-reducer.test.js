@@ -27,12 +27,13 @@ describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
     expect(kegReducer(defaultState, { action: null })).toEqual(defaultState)
   })
 
-  // test('it adds a new keg successfully upon dispatch of ADD_KEG action', () => {
-  //   action = {
-  //     ADD, ...testKeg
-  //   }
-  //   expect(kegReducer())
-  // })
+  test('it adds a new keg successfully upon dispatch of ADD_KEG action', () => {
+    action = {
+      ADD, ...testKeg
+    }
+    const result = [...defaultState, testKeg]
+    expect(kegReducer(defaultState, action)).toEqual(result)
+  })
 })
 
 
