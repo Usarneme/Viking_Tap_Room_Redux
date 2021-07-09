@@ -1,5 +1,5 @@
 // Redux action constants
-import { TOGGLE_EDIT } from './../../actions/renderState'
+import { TOGGLE_EDIT, HIDE_EDITOR } from './../../actions/renderState'
 import renderStateReducer from './../../reducers/renderState'
 
 describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
@@ -27,6 +27,16 @@ describe('🎛  REACT RENDER STATE TESTS 🎛', () => {
   test('show edit form action should toggle state from false to true and back to false', () => {
     action = {
       type: TOGGLE_EDIT
+    }
+    const trueRenderState = {
+      renderEditForm: true
+    }
+    expect(renderStateReducer(trueRenderState, action)).toEqual(defaultRenderState)
+  })
+
+  test('hide editor action ensures the keg editor is showing state is false', () => {
+    action = {
+      type: HIDE_EDITOR
     }
     const trueRenderState = {
       renderEditForm: true
