@@ -57,6 +57,7 @@ function SingleKeg(props) {
                 name={props.name}
                 price={props.price}
                 pintsRemaining={props.pintsRemaining}
+                editKeg={props.editKeg}
               />
             </div>
             :
@@ -79,7 +80,8 @@ SingleKeg.propTypes = {
   sellPint: PropTypes.func,
   removeKeg: PropTypes.func,
   toggleEditKeg: PropTypes.func,
-  editFormShowing: PropTypes.bool
+  editFormShowing: PropTypes.bool,
+  editKeg: PropTypes.func
 }
 
 export default SingleKeg

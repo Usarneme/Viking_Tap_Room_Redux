@@ -66,6 +66,22 @@ class App extends Component {
     dispatch(action)
   }
 
+  editKeg = (id, name, price, brand, alcoholContent, pintsRemaining) => {
+    const { dispatch } = this.props
+    const action = {
+      type: UPDATE,
+      name: name,
+      brand: brand,
+      price: Number(price),
+      alcoholContent: Number(alcoholContent),
+      id: id,
+      pintsRemaining: Number(pintsRemaining)
+    }
+    dispatch(action)
+    // hide the form after saving changes
+    this.toggleEditKeg()
+  }
+
   toggleEditKeg = () => {
     const { dispatch } = this.props
     const action = {
@@ -85,7 +101,8 @@ class App extends Component {
                 sellPint={id => this.sellPint(id)}
                 removeKeg={id => this.removeKeg(id)}
                 toggleEditKeg={this.toggleEditKeg}
-                editFormShowing={this.props.renderState.editFormShowing} />
+                editFormShowing={this.props.renderState.editFormShowing}
+                editKeg={this.editKeg} />
             </Route>
             <Route path="/kegs">
               <Kegs kegs={this.props.kegs}

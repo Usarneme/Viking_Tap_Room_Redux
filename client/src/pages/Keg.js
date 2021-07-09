@@ -14,8 +14,8 @@ function KegPage(props) {
   }
 
   const thisKeg = props.kegs.filter(k => k.id === id)[0]
-  console.log("keg page found keg", thisKeg)
   const { name, brand, price, alcoholContent, pintsRemaining } = thisKeg
+
   return (
     <div className='container tall'>
       <Header title={`Viewing Keg: ${name}`} />
@@ -30,6 +30,7 @@ function KegPage(props) {
         removeKeg={removeKeg}
         toggleEditKeg={props.toggleEditKeg}
         editFormShowing={props.editFormShowing}
+        editKeg={props.editKeg}
       />
     </div>
   )
@@ -40,7 +41,8 @@ KegPage.propTypes = {
   sellPint: PropTypes.func.isRequired,
   removeKeg: PropTypes.func.isRequired,
   toggleEditKeg: PropTypes.func.isRequired,
-  editFormShowing: PropTypes.bool
+  editFormShowing: PropTypes.bool.isRequired,
+  editKeg: PropTypes.func.isRequired
 }
 
 export default KegPage
