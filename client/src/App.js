@@ -3,6 +3,8 @@ import { v4 as uuid } from 'uuid'
 
 // Redux store connector
 import { connect } from 'react-redux'
+// Redux actions
+import { ADD, UPDATE, DELETE } from './actions/kegs'
 
 // Pages
 import Home from './pages/Home'
@@ -29,13 +31,18 @@ class App extends Component {
   //   localStorage.setItem('viking_tap_room_kegs', JSON.stringify(this.props.kegs))
   // }
 
-  createNewKeg = async (name, price, brand, alcoholContent) => {
-    const newKeg = {
-      name: name, brand: brand, price: Number(price), alcoholContent: Number(alcoholContent), id: uuid(), pintsRemaining: 124
+  createNewKeg = (name, price, brand, alcoholContent) => {
+    const { dispatch } = this.props
+    const action = {
+      type: ADD,
+      name: name,
+      brand: brand,
+      price: Number(price),
+      alcoholContent: Number(alcoholContent),
+      id: uuid(),
+      pintsRemaining: 124
     }
-    const newKegsList = this.props.kegs.concat(newKeg)
-    await this.setState({ kegs: newKegsList })
-    this.setKegsToStorage()
+    dispatch(action)
   }
 
   sellPint = async id => {
@@ -70,8 +77,8 @@ class App extends Component {
   }
 }
 
+// Connect Redux store/state to App via App props
 const mapStateToProps = state => state
-
 App = connect(mapStateToProps)(App)
 
 export default App
