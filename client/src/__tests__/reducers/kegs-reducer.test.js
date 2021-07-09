@@ -29,7 +29,7 @@ describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
 
   test('it adds a new keg successfully upon dispatch of ADD_KEG action', () => {
     action = {
-      ADD, ...testKeg
+      type: ADD, ...testKeg
     }
     const result = [...defaultState, testKeg]
     expect(kegReducer(defaultState, action)).toEqual(result)
