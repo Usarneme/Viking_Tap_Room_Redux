@@ -23,11 +23,15 @@ describe('🍻 KEGS REDUCERS TESTS 🍻', () => {
     expect(kegReducer([],{ action: null })).toEqual([])
   })
 
+  test('default state passed to the reducer with no action should return the same state', () => {
+    expect(kegReducer(defaultState, { action: null })).toEqual(defaultState)
+  })
+
   // test('it adds a new keg successfully upon dispatch of ADD_KEG action', () => {
   //   action = {
   //     ADD, ...testKeg
   //   }
-  //   expect()
+  //   expect(kegReducer())
   // })
 })
 
