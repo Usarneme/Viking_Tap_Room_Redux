@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { connect } from 'react-redux'
 // Redux actions
 import { ADD, UPDATE, DELETE } from './actions/kegs'
-import { TOGGLE_EDIT } from './actions/renderState'
+import { TOGGLE_EDIT, HIDE_EDITOR } from './actions/renderState'
 
 // Pages
 import Home from './pages/Home'
@@ -78,14 +78,21 @@ class App extends Component {
       pintsRemaining: Number(pintsRemaining)
     }
     dispatch(action)
-    // hide the form after saving changes
-    this.toggleEditKeg()
+    this.hideEditor()
   }
 
   toggleEditKeg = () => {
     const { dispatch } = this.props
     const action = {
       type: TOGGLE_EDIT
+    }
+    dispatch(action)
+  }
+
+  hideEditor = () => {
+    const { dispatch } = this.props
+    const action = {
+      type: HIDE_EDITOR
     }
     dispatch(action)
   }
@@ -108,10 +115,11 @@ class App extends Component {
               <Kegs kegs={this.props.kegs}
                 createNewKeg={this.createNewKeg}
                 sellPint={id => this.sellPint(id)}
-                removeKeg={id => this.removeKeg(id)} />
+                removeKeg={id => this.removeKeg(id)}
+                hideEditor={this.hideEditor} />
             </Route>
             <Route path="/">
-              <Home kegs={this.props.kegs} />
+              <Home kegs={this.props.kegs} hideEditor={this.hideEditor} />
             </Route>
           </Switch>
         </Router>

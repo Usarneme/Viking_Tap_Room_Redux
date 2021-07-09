@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Header from './../components/Header'
 import KegsList from '../components/KegsList'
 
 function Home(props) {
+  useEffect(() => {
+    props.hideEditor()
+  }, [])
+
   return(
     <div className='container tall'>
       <Header title='Home' />
@@ -13,7 +17,8 @@ function Home(props) {
 }
 
 Home.propTypes = {
-  kegs: PropTypes.array.isRequired
+  kegs: PropTypes.array.isRequired,
+  hideEditor: PropTypes.func.isRequired
 }
 
 export default Home

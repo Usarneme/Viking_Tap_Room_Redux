@@ -88,11 +88,11 @@ function EditKeg(props) {
 
 EditKeg.propTypes = {
   id: PropTypes.string.isRequired,
-  alcoholContent: PropTypes.string.isRequired,
+  alcoholContent: PropTypes.number.isRequired,
   brand: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  pintsRemaining: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  pintsRemaining: PropTypes.number.isRequired,
   editKeg: PropTypes.func.isRequired
 }
 

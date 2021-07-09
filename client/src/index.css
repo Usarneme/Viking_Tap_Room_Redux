@@ -82,6 +82,11 @@ button {
   font-size: 1.6rem;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: unset;
+}
+
 h1,h2,h3,h4,h5 {
   font-family: NorseBold;
   font-weight: bold;

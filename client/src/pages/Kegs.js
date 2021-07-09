@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Header from './../components/Header'
 import KegsList from './../components/KegsList'
 import AddNewKeg from './../components/AddNewKeg'
 
 function Kegs(props) {
+  useEffect(() => {
+    props.hideEditor()
+  }, [])
+
   return (
     <div className='container tall'>
       <Header title='Administration' />
@@ -26,7 +30,8 @@ Kegs.propTypes = {
   kegs: PropTypes.array.isRequired,
   sellPint: PropTypes.func.isRequired,
   removeKeg: PropTypes.func.isRequired,
-  renderEditForm: PropTypes.bool
+  renderEditForm: PropTypes.bool,
+  hideEditor: PropTypes.func.isRequired
 }
 
 export default Kegs
