@@ -18,6 +18,8 @@ const kegReducer = (state = defaultState, action) => {
         alcoholContent: action.alcoholContent
       }
       return [...kegsWithoutUpdated, updatedKeg]
+    case DELETE:
+      return state.filter(k => k.id !== action.id)
     default:
       return state
   }
