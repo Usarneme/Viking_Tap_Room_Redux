@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { v4 as uuid } from 'uuid'
 
+// Redux store connector
+import { connect } from 'react-redux'
+
 // Pages
 import Home from './pages/Home'
 import Kegs from './pages/Kegs' // view all kegs
@@ -10,9 +13,6 @@ import Keg from './pages/Keg' // view single keg by ID
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 
-// Helpers/default data
-import { kegs as defaultKegs } from './defaultKegs.json'
-
 // Router
 import {
   BrowserRouter as Router,
@@ -21,34 +21,27 @@ import {
 } from "react-router-dom"
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      kegs: this.getKegsFromStorage() || defaultKegs
-    }
-  }
+  // getKegsFromStorage = () => {
+  //   return JSON.parse(localStorage.getItem('viking_tap_room_kegs')) || null
+  // }
 
-  getKegsFromStorage = () => {
-    return JSON.parse(localStorage.getItem('viking_tap_room_kegs')) || null
-  }
-
-  setKegsToStorage = () => {
-    localStorage.setItem('viking_tap_room_kegs', JSON.stringify(this.state.kegs))
-  }
+  // setKegsToStorage = () => {
+  //   localStorage.setItem('viking_tap_room_kegs', JSON.stringify(this.props.kegs))
+  // }
 
   createNewKeg = async (name, price, brand, alcoholContent) => {
     const newKeg = {
       name: name, brand: brand, price: Number(price), alcoholContent: Number(alcoholContent), id: uuid(), pintsRemaining: 124
     }
-    const newKegsList = this.state.kegs.concat(newKeg)
+    const newKegsList = this.props.kegs.concat(newKeg)
     await this.setState({ kegs: newKegsList })
     this.setKegsToStorage()
   }
 
   sellPint = async id => {
-    const kegCopy = this.state.kegs.filter(k => k.id === id)[0]
+    const kegCopy = this.props.kegs.filter(k => k.id === id)[0]
     kegCopy.pintsRemaining -= 1
-    const kegsListCopy = this.state.kegs.filter(k => k.id !== id)
+    const kegsListCopy = this.props.kegs.filter(k => k.id !== id)
     kegsListCopy.push(kegCopy)
     await this.setState({ kegs: kegsListCopy })
     this.setKegsToStorage()
@@ -61,13 +54,13 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route path="/kegs/:id">
-              <Keg kegs={this.state.kegs} sellPint={id => this.sellPint(id)} />
+              <Keg kegs={this.props.kegs} sellPint={id => this.sellPint(id)} />
             </Route>
             <Route path="/kegs">
-              <Kegs kegs={this.state.kegs} createNewKeg={this.createNewKeg} sellPint={id => this.sellPint(id)} />
+              <Kegs kegs={this.props.kegs} createNewKeg={this.createNewKeg} sellPint={id => this.sellPint(id)} />
             </Route>
             <Route path="/">
-              <Home kegs={this.state.kegs} />
+              <Home kegs={this.props.kegs} />
             </Route>
           </Switch>
         </Router>
@@ -76,5 +69,9 @@ class App extends Component {
     )
   }
 }
+
+const mapStateToProps = state => state
+
+App = connect(mapStateToProps)(App)
 
 export default App
